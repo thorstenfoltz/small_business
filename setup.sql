@@ -1,0 +1,11 @@
+create database if not exists bi;
+create database if not exists metabase;
+create user 'metabase'@'%' identified by 'metabase';
+create user 'phpmyadmin'@'%' identified by 'phpmyadmin';
+grant select on `dolibarr`.* to 'metabase'@'%';
+grant all privileges on `bi`.* to 'metabase'@'%';
+grant all privileges on `metabase`.* to 'metabase'@'%';
+grant all privileges on `metabase`.* to 'phpmyadmin'@'%';
+grant all privileges on `bi`.* to 'phpmyadmin'@'%';
+grant select on `dolibarr`.* to 'phpmyadmin'@'%';
+flush privileges;
